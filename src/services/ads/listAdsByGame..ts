@@ -3,7 +3,7 @@ import { PrismaClient } from "@prisma/client";
 export default class ListAdsByGame {
   private prisma = new PrismaClient();
   async execute(gameId: string) {
-    const ad = await this.prisma.ads.findMany({
+    const ads = await this.prisma.ads.findMany({
       select: {
         id: true,
         name: true,
@@ -21,6 +21,6 @@ export default class ListAdsByGame {
       },
     });
 
-    return ad;
+    return ads;
   }
 }
