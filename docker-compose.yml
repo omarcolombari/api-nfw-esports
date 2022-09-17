@@ -21,7 +21,6 @@ services:
       - ./.env
     volumes:
       - ./:/app/:rw
-    environment:
     depends_on:
       db:
         condition: service_healthy
