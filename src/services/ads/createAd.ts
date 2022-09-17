@@ -12,7 +12,7 @@ interface ICreateAd {
   useVoiceChannel: boolean;
 }
 
-export default class FindDiscordByAd {
+export default class CreateAdService {
   async execute({
     discord,
     gameId,
