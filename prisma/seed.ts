@@ -17,6 +17,7 @@ interface IResponseGetGames {
 
 const prisma = new PrismaClient();
 
+// This function return Bearer Token for new requests in Twitch API
 const getBearerToken = async () => {
   const {
     data: { access_token },
@@ -29,6 +30,7 @@ const getBearerToken = async () => {
   return access_token;
 };
 
+// This function returns the 20 most popular games on Twitch
 const getGames = async (token: string) => {
   const {
     data: { data },
@@ -45,6 +47,7 @@ const getGames = async (token: string) => {
   return data;
 };
 
+// This function inserts the games passed by parameter in the database
 const insertGamesInDb = (games: IGames[]) => {
   games.forEach(async (element) => {
     const game = await prisma.game.create({
@@ -56,12 +59,14 @@ const insertGamesInDb = (games: IGames[]) => {
   });
 };
 
+// This function gathers all the others and passes the necessary data for operation
 const main = async () => {
   const token = await getBearerToken();
   const games = await getGames(token);
   insertGamesInDb(games);
 };
 
+// Here is being called the main function to populate the database
 main()
   .then(async () => {
     await prisma.$disconnect();
