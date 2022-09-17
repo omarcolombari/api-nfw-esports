@@ -4,7 +4,7 @@ import FindDiscordByAd from "../services/ads/findDiscordByAd";
 import ListAdsByGame from "../services/ads/listAdsByGame.";
 
 export default class AdController {
-  async store(req: Request, res: Response) {
+  static async store(req: Request, res: Response) {
     const {
       discord,
       hourEnd,
@@ -31,7 +31,7 @@ export default class AdController {
     return res.status(201).json(ad);
   }
 
-  async showDiscord(req: Request, res: Response) {
+  static async showDiscord(req: Request, res: Response) {
     const { id } = req.params;
 
     const findDiscordByAd = new FindDiscordByAd();
@@ -40,7 +40,7 @@ export default class AdController {
     return res.json(discord);
   }
 
-  async listByGame(req: Request, res: Response) {
+  static async listAdsByGame(req: Request, res: Response) {
     const { id } = req.params;
 
     const listAdsByGame = new ListAdsByGame();
