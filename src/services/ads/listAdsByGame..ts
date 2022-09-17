@@ -1,9 +1,9 @@
-import { PrismaClient } from "@prisma/client";
+import { prisma } from "../../app";
+import { convertMinutesToHoursString } from "../../utils/convert-minute-to-hours-string";
 
 export default class ListAdsByGame {
-  private prisma = new PrismaClient();
   async execute(gameId: string) {
-    const ads = await this.prisma.ads.findMany({
+    const ads = await prisma.ads.findMany({
       select: {
         id: true,
         name: true,
@@ -21,6 +21,12 @@ export default class ListAdsByGame {
       },
     });
 
-    return ads;
+    return ads.map((ad) => {
+      return {
+        ...ad,
+        hourEnd: convertMinutesToHoursString(ad.hourEnd),
+        hourStart: convertMinutesToHoursString(ad.hourStart),
+      };
+    });
   }
 }

@@ -1,9 +1,8 @@
-import { PrismaClient } from "@prisma/client";
+import { prisma } from "../../app";
 
 export default class FindDiscordByAd {
-  private prisma = new PrismaClient();
   async execute(id: string) {
-    const ad = await this.prisma.ads.findUniqueOrThrow({
+    const ad = await prisma.ads.findUniqueOrThrow({
       select: {
         discord: true,
       },
