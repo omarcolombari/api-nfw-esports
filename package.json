@@ -5,7 +5,7 @@
   "author": "Omar <omarucolombari@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "ts-node-dev --inspect --exit-child --ignore-watch node_modules src/server.ts",
+    "dev": "ts-node-dev --respawn --transpile-only --inspect --exit-child --ignore-watch node_modules src/server.ts",
     "start": "node dist/server.js",
     "build": "babel src --extensions \".js,.ts\" --out-dir dist --copy-files --no-copy-ignored"
   },

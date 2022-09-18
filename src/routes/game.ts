@@ -3,6 +3,6 @@ import GameController from "../controllers/game";
 
 const gameRouter = Router();
 
-gameRouter.get("/games", GameController.index);
+gameRouter.get("/", GameController.index);
 
 export default gameRouter;

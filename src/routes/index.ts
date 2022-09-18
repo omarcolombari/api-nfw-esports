@@ -4,7 +4,7 @@ import gameRouter from "./game";
 
 const routes = Router();
 
-routes.use(gameRouter);
+routes.use("/games", gameRouter);
 routes.use(adRouter);
 
 export default routes;

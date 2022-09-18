@@ -12,15 +12,3 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
-
-  api:
-    build: ./
-    ports:
-      - 3000:3000
-    env_file:
-      - ./.env
-    volumes:
-      - ./:/app/:rw
-    depends_on:
-      db:
-        condition: service_healthy
