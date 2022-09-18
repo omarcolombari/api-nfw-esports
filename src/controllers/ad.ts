@@ -35,7 +35,7 @@ export default class AdController {
     const { id } = req.params;
 
     const findDiscordByAd = new FindDiscordByAd();
-    const discord = findDiscordByAd.execute(id);
+    const discord = await findDiscordByAd.execute(id);
 
     return res.json(discord);
   }
@@ -44,7 +44,7 @@ export default class AdController {
     const { id } = req.params;
 
     const listAdsByGame = new ListAdsByGame();
-    const ads = listAdsByGame.execute(id);
+    const ads = await listAdsByGame.execute(id);
 
     return res.json(ads);
   }
