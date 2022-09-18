@@ -53,7 +53,7 @@ const insertGamesInDb = (games: IGames[]) => {
     const game = await prisma.game.create({
       data: {
         title: element.name,
-        bannerUrl: element.box_art_url,
+        bannerUrl: element.box_art_url.replace("-{width}x{height}", ""),
       },
     });
   });
