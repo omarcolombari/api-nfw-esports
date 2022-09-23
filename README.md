@@ -26,7 +26,7 @@ Essa rota retorna todos os jogos cadastrados e quantos anuncios ele tem.
 
 `GET /games - FORMATO DA REQUISIÇÃO`
 
-`GET /register - FORMATO DA RESPOSTA - STATUS 200`
+`GET /games - FORMATO DA RESPOSTA - STATUS 200`
 
 ```json
 [
